@@ -21,7 +21,7 @@ layout=[
                 sg.Button("D10",k='-D10-'),
                 sg.Button("D20",k='-D20-')
             ],
-            [sg.Button("+",k="-ADD-"), sg.Text("add?: ",add)]
+            [sg.Button("+",k="-ADD-", button_color=('white','gray')), sg.Text("add?: ",add)]
         ]
 window = sg.Window('DICE ROLLER').Layout(layout)
 
@@ -34,9 +34,11 @@ while True:
         if event == '-ADD-':
             if add == False:
                 add = True
+                window.FindElement('-ADD-').Update(button_color=('white', 'green'))
                 print(add)
             else: 
                 add = False
+                window.FindElement('-ADD-').Update(button_color=('white', 'gray'))
                 print(add)
                 
         if event == '-D6-':
